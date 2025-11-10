@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title : 'Melike Çiftçi' %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">Melike Çiftçi</a>
+      <ul class="nav-links">
+        <li><a href="/">Anasayfa</a></li>
+        <li><a href="/about">Hakkımda</a></li>
+        <li><a href="/contact">İletişim</a></li>
+      </ul>
+      <div class="search-container">
+        <form action="/search" method="GET">
+          <input type="text" name="q" class="search-bar" placeholder="Makale Arayın..." required>
+        </form>
+      </div>
+      <% if (isAuthenticated) { %>
+        <a href="/admin" class="btn btn-primary btn-sm">Kullanıcı Anasayfası</a>
+        <a href="/logout" class="btn btn-secondary btn-sm">Çıkış</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-primary btn-sm">Giriş</a>
+      <% } %>
+    </nav>
+  </header>
+  <main>

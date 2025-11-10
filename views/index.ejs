@@ -1,0 +1,38 @@
+<%- include('partials/header', { title: 'Ana Sayfa - Melike Çiftçi', isAuthenticated }) %>
+
+<div class="hero">
+  <h1>Hoşgeldiniz</h1>
+  <p>Ben de işte böyleyim</p>
+</div>
+
+<section class="profile-section">
+  <img class="profile-photo">
+  <div class="profile-info">
+    <h2><%= psychologist.name %></h2>
+    <p class="credentials"><%= psychologist.credentials %></p>
+    <p><%= psychologist.bio %></p>
+    <a href="/about" class="btn btn-primary" style="margin-top: 1rem;">Learn More About Me</a>
+  </div>
+</section>
+
+<section class="articles-section">
+  <h2>Son Makaleler</h2>
+  <% if (articles.length === 0) { %>
+    <p>Hiç Makale yok henüz!</p>
+  <% } else { %>
+    <div class="articles-grid">
+      <% articles.forEach(article => { %>
+        <a href="/article/<%= article.id %>" class="article-card">
+          <h3><%= article.title %></h3>
+          <div class="article-meta">
+            Yazan: <%= article.author %> • <%= article.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+          </div>
+          <p class="article-excerpt"><%= article.excerpt %></p>
+          <span class="read-more">Daha Fazla →</span>
+        </a>
+      <% }); %>
+    </div>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>

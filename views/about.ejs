@@ -1,0 +1,37 @@
+<%- include('partials/header', { title: 'About Me - Psychology Blog', isAuthenticated }) %>
+
+<div class="hero">
+  <h1>Hakkımda</h1>
+  <p>Gelin anlatayım ben kimim.</p>
+</div>
+
+<section class="profile-section" style="flex-direction: column; text-align: center;">
+  <img class="profile-photo">
+  <div class="profile-info" style="text-align: center;">
+    <h2><%= psychologist.name %></h2>
+    <p class="credentials"><%= psychologist.credentials %></p>
+  </div>
+</section>
+
+<section class="article-full">
+  <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Yaklaşımım</h2>
+  <div class="article-content">
+    <p><%= psychologist.bio %></p>
+    
+    <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Uzmanlıklarım ve en heyecanlı konular</h3>
+    <ul style="line-height: 2; color: var(--text-light);">
+      <li>Stres yönetimi</li>
+      <li>Her türlü can sıkıntısı</li>
+      <li>Davranışsal Bilişsellik Terapisi (BDT)</li>
+      <li>Salih amel iyi niyet</li>
+      <li>Yeme içme bozuklukları</li>
+    </ul>
+
+    <h3 style="color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem;">Felsefem</h3>
+    <p>hshshhshshshshhshshshshhshshshshhshshshshhshshshshhshshshshh. shshshshhshshshshhshshshshhshshshshhshshshshhshs.</p>
+
+    <p style="margin-top: 1.5rem;">Burada biraz daha yazı. hjhjhjhjhjhjhjhjhjhjhjhj. hjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh. jhjhjhjhjhjhjhjhjhjhjhjhjhjhj. hjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjh. jhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhjhj.</p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

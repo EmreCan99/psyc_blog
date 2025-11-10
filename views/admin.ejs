@@ -1,0 +1,87 @@
+<%- include('partials/header', { title: 'Admin Panel - Psychology Blog', isAuthenticated }) %>
+
+<div class="admin-header">
+  <h1 style="color: var(--primary-color);">Yazıhane</h1>
+</div>
+
+<!-- Create New Article -->
+<section class="admin-section">
+  <h2>Yeni Makale Yaz</h2>
+  <form action="/admin/article" method="POST">
+    <div class="form-group">
+      <label for="title">Başlık</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="excerpt">Özet</label>
+      <textarea id="excerpt" name="excerpt" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="content">İçerik</label>
+      <textarea id="content" name="content" rows="10" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Makaleyi Yayınla</button>
+  </form>
+</section>
+
+<!-- Manage Articles -->
+<section class="admin-section">
+  <h2>Yazılmış Makaleleri Düzenle</h2>
+  <% if (articles.length === 0) { %>
+    <p>Henüz makale yok. Yenisini Yazın bir zahmet!</p>
+  <% } else { %>
+    <% articles.forEach(article => { %>
+      <div class="article-item">
+        <h3><%= article.title %></h3>
+        <div class="article-meta">
+          <%= article.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %> • 
+          Status: <strong style="color: <%= article.published ? 'var(--success)' : 'var(--danger)' %>">
+            <%= article.published ? 'Yayınlandı' : 'Taslak' %>
+          </strong>
+        </div>
+        <p class="article-excerpt"><%= article.excerpt %></p>
+        
+        <div class="article-actions">
+          <button onclick="toggleEdit(<%= article.id %>)" class="btn btn-secondary btn-sm">Düzenle</button>
+          <form action="/admin/article/<%= article.id %>/toggle" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-primary btn-sm">
+              <%= article.published ? 'Yayından Kaldır' : 'Yayınla' %>
+            </button>
+          </form>
+          <form action="/admin/article/<%= article.id %>/delete" method="POST" style="display: inline;" onsubmit="return confirm('Makaleyi silmek istiyor musun?');">
+            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+          </form>
+        </div>
+
+        <!-- Edit Form -->
+        <div id="edit-<%= article.id %>" class="edit-form">
+          <form action="/admin/article/<%= article.id %>/edit" method="POST">
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" name="title" value="<%= article.title %>" required>
+            </div>
+            <div class="form-group">
+              <label>Excerpt</label>
+              <textarea name="excerpt" rows="3" required><%= article.excerpt %></textarea>
+            </div>
+            <div class="form-group">
+              <label>Content</label>
+              <textarea name="content" rows="10" required><%= article.content %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Değişiklikleri kaydet</button>
+            <button type="button" onclick="toggleEdit(<%= article.id %>)" class="btn btn-secondary btn-sm">Vazgeçtim değiştirmiyorum</button>
+          </form>
+        </div>
+      </div>
+    <% }); %>
+  <% } %>
+</section>
+
+<script>
+function toggleEdit(id) {
+  const form = document.getElementById('edit-' + id);
+  form.classList.toggle('active');
+}
+</script>
+
+<%- include('partials/footer') %>
