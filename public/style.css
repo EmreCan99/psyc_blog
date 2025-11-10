@@ -403,7 +403,36 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  nav {
+
+    /* Arama kutusu bu haliyle küçülüyor ama arama yapılamıyor */
+
+    .search-container {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; /* Makes it a perfect circle */
+        background-color: var(--bg-white); /* Use your primary color for the button */
+        /* Ensure no unwanted overflow from the input */
+        overflow: hidden; 
+        /* Center the search icon if you use one (recommended) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-container form, 
+    .search-bar {
+    /* Hiding the input field is key to making the container small */
+        display: none; 
+    }
+
+    .search-container::before {
+        content: "🔍";
+        font-size: 1.2rem;
+        color: var(--bg-light); /* Light color for contrast against the dark circle */
+}
+
+
+  /* nav {
     flex-direction: column;
     gap: 1rem;
   }
@@ -411,7 +440,7 @@ footer {
   .nav-links {
     flex-direction: column;
     gap: 1rem;
-  }
+  } */
 
   .profile-section {
     flex-direction: column;
@@ -422,11 +451,22 @@ footer {
     grid-template-columns: 1fr;
   }
 
+
   .hero h1 {
     font-size: 2rem;
   }
 
   .article-full h1 {
     font-size: 2rem;
+  }
+
+  /* Disappear elements */
+
+  .hero {
+    display: none;
+  }
+
+  .logo {
+    display: none;
   }
 }
