@@ -35,7 +35,7 @@
         <h3><%= article.title %></h3>
         <div class="article-meta">
           <%= article.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %> • 
-          Status: <strong style="color: <%= article.published ? 'var(--success)' : 'var(--danger)' %>">
+          Durum: <strong style="color: <%= article.published ? 'var(--success)' : 'var(--danger)' %>">
             <%= article.published ? 'Yayınlandı' : 'Taslak' %>
           </strong>
         </div>
