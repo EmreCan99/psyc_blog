@@ -6,10 +6,10 @@
   <title>Giriş - Melike Çiftçi</title>
   <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class= <%- locals.special_login_css %>>
   <main>
     <div class="login-container">
-      <h1>Sadece Yetkili Personel</h1>
+      <%- welcome_message %>
       <% if (error) { %>
         <div class="error-message"><%= error %></div>
       <% } %>

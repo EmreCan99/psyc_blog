@@ -129,7 +129,21 @@ app.get('/login', (req, res) => {
   if (req.session.isAuthenticated) {
     return res.redirect('/admin');
   }
-  res.render('login', { error: null });
+  res.render('login', { 
+    error: null,        
+    welcome_message: '<h1>Sadece Yetkili Personel</h1>'
+  });
+});
+// Same page but shortcut
+app.get('/q', (req, res) => {
+  if (req.session.isAuthenticated) {
+    return res.redirect('/admin');
+  }
+  res.render('login', { 
+    error: null,
+    welcome_message: '<h1>Hoşgeldiniz Melike Hanım</h1>',
+    special_login_css: 'special-login' 
+  });
 });
 
 app.post('/login', (req, res) => {
