@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= typeof title !== 'undefined' ? title : 'Melike Çiftçi' %></title>
   <link rel="stylesheet" href="/style.css">
+
+  <!-- Google fonts for "Parisienne" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -14,6 +20,8 @@
         <li><a href="/">Anasayfa</a></li>
         <li><a href="/about">Hakkımda</a></li>
         <li><a href="/contact">İletişim</a></li>
+        <input type="color" onchange="document.body.style.backgroundColor = this.value" value="#f5f0eb" 
+       style="position: fixed; top: 10px; right: 10px; width: 50px; height: 50px; cursor: pointer;">     
       </ul>
       <div class="search-container">
         <form action="/search" method="GET">
@@ -21,10 +29,10 @@
         </form>
       </div>
       <% if (isAuthenticated) { %>
-        <a href="/admin" class="btn btn-primary btn-sm">Kullanıcı Anasayfası</a>
+        <a href="/admin" class="btn btn-primary btn-sm">Yazıhane</a>
         <a href="/logout" class="btn btn-secondary btn-sm">Çıkış</a>
       <% } else { %>
-        <a href="/login" class="btn btn-primary btn-sm">Giriş</a>
+        <!-- <a href="/login" class="btn btn-primary btn-sm">Giriş</a> -->
       <% } %>
     </nav>
   </header>

@@ -45,9 +45,11 @@ nav {
   gap: 2rem;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 300;
+.logo {    
+  font-size: 1.8rem;
+  font-family: "Parisienne", cursive;
+  font-weight: 600;
+  font-style: normal;
   color: var(--primary-color);
   text-decoration: none;
   white-space: nowrap;

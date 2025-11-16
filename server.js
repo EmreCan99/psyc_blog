@@ -60,13 +60,13 @@ const psychologist = {
   name: 'Psk. Melike Çiftçi',
   credentials: 'Yüksek lisansı var bir üniversitede',
   bio: '15 yılı aşkın psikioloji terapileri eğitimleri akademi vesaire. Ayrıca başka bir sürü şey daha',
-  photo: '/images/psychologist.jpg' // Add your photo to public/images/
+  photo: '/images/psychologist.jpg'
 };
 
-// Simple authentication (replace with proper auth later)
+// Simple authentication
 const adminCredentials = {
   username: 'melike',
-  password: '123' // Change this!
+  password: '123' 
 };
 
 // Middleware to check if user is logged in
@@ -125,15 +125,18 @@ app.get('/search', (req, res) => {
   });
 });
 
-app.get('/login', (req, res) => {
-  if (req.session.isAuthenticated) {
-    return res.redirect('/admin');
-  }
-  res.render('login', { 
-    error: null,        
-    welcome_message: '<h1>Sadece Yetkili Personel</h1>'
-  });
-});
+/// Eskiden Anasayfada giriş butonu vardı
+
+// app.get('/login', (req, res) => {
+//   if (req.session.isAuthenticated) {
+//     return res.redirect('/admin');
+//   }
+//   res.render('login', { 
+//     error: null,        
+//     welcome_message: '<h1>Sadece Yetkili Personel</h1>'
+//   });
+// });
+
 // Same page but shortcut
 app.get('/q', (req, res) => {
   if (req.session.isAuthenticated) {
