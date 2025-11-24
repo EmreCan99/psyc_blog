@@ -59,7 +59,7 @@ const articles = [
 const psychologist = {
   name: 'Psk. Melike Çiftçi',
   credentials: 'Yüksek lisansı var bir üniversitede',
-  bio: '15 yılı aşkın psikioloji terapileri eğitimleri akademi vesaire. Ayrıca başka bir sürü şey daha',
+  bio: 'İstanbul Medipol Üniversitesi Psikoloji Ana Bilim Dalı’nı 2019 yılında tamamlamıştır. Mezun olduktan sonra 2020 yılında Üsküdar Üniversitesi Klinik Psikoloji Yüksek Lisans Programına başlamış, ilgili bölüm derslerini ve süpervizyon sürecini başarıyla tamamladıktan sonra “İletişim Hatalarında Kişilerarası İlişkiler Psikoterapisinin Etkililiği” konulu tez çalışmasını yürüterek programı bitirmiştir. Daha sonra Datem (Davranış araştırmaları Merkezi) ile çalışarak Bilişsel ve Davranışçı Terapiler Eğitimini tamamlamıştır. Şu anda aktif olarak Erzurum’da yüz yüze ve çevrimiçi/online olarak yetişkin grubu ile çalışmaktadır. Terapi sürecinde Bilişsel Davranışçı Terapi ekolünü kullanmakla birlikte danışan odaklı eklektik bir süreç yürütmektedir.',
   photo: '/images/psychologist.jpg'
 };
 
@@ -94,6 +94,12 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about', { 
     psychologist,
+    isAuthenticated: req.session.isAuthenticated 
+  });
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact', { 
     isAuthenticated: req.session.isAuthenticated 
   });
 });

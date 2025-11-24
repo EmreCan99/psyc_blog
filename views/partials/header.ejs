@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= typeof title !== 'undefined' ? title : 'Melike Çiftçi' %></title>
   <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="./images/Psi2.png">
 
   <!-- Google fonts for "Parisienne" -->
   <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -20,8 +21,10 @@
         <li><a href="/">Anasayfa</a></li>
         <li><a href="/about">Hakkımda</a></li>
         <li><a href="/contact">İletişim</a></li>
-        <input type="color" onchange="document.body.style.backgroundColor = this.value" value="#f5f0eb" 
-       style="position: fixed; top: 10px; right: 10px; width: 50px; height: 50px; cursor: pointer;">     
+
+        <!-- eskimiş arkaplan seçeneği -->
+        <!-- <input type="color" onchange="document.body.style.backgroundColor = this.value" value="#f5f0eb" 
+       style="position: fixed; top: 10px; right: 10px; width: 50px; height: 50px; cursor: pointer;">      -->
       </ul>
       <div class="search-container">
         <form action="/search" method="GET">

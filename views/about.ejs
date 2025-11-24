@@ -1,12 +1,12 @@
 <%- include('partials/header', { title: 'Hakkımda - Melike Çiftçi', isAuthenticated }) %>
 
-<div class="hero">
+<div class="hero about-hero">
   <h1>Hakkımda</h1>
   <p>Gelin anlatayım ben kimim.</p>
 </div>
 
 <section class="profile-section" style="flex-direction: column; text-align: center;">
-  <img src= "images/kedi_1.jpg" class="profile-photo">
+  <img src= "images/melike_resim2.jpeg" class="profile-photo">
   <div class="profile-info" style="text-align: center;">
     <h2><%= psychologist.name %></h2>
     <p class="credentials"><%= psychologist.credentials %></p>
@@ -14,7 +14,7 @@
 </section>
 
 <section class="article-full">
-  <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Yaklaşımım</h2>
+  <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Bir başlık</h2>
   <div class="article-content">
     <p><%= psychologist.bio %></p>
     

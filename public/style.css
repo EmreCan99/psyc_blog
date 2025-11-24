@@ -24,7 +24,6 @@ body {
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--bg-light);
-}
 
 /* Header Styles */
 header {
@@ -138,16 +137,38 @@ main {
   padding: 0 2rem;
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg,#ff8538, #13b55c);
-  /* background: linear-gradient(135deg, #fb764d, #13b582); */
+/* ESKİ Hero Section */
+/* .hero {
+
+  background: linear-gradient(135deg,#ff8438ab, #13b55cc7);
+
+
   color: white;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2rem;
+
+  /* radius default 15px */
+  /* border-radius: 15px;
+  margin-bottom: 2rem;
+  text-align: center; */
+} 
+
+/* YENİ Hero */
+.hero {
+  background: 
+    /* linear-gradient(135deg, #ffffff99, #ffffff99), 99: yaklaşık %60 opaklık */
+    url('./images/room_ai.png');
+
+  background-size: cover; /* Resmi, alanı kaplayacak şekilde ölçekle */
+  background-position-y: 20%;
+  
+  color: white;
+  padding: 2.5rem 2rem;
   border-radius: 15px;
   margin-bottom: 2rem;
   text-align: center;
+
 }
+
 
 
 .hero h1 {
@@ -157,7 +178,24 @@ main {
 
 .hero p {
   font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 1;
+  color: #663c2c;
+}
+
+.about-hero {
+  background-position-y: 40%;
+}
+
+.about-hero p {
+  color: #ffffff;
+}
+
+.contact-hero {
+  background-position-y: 70%;
+}
+
+.contact-hero p{
+  color: #ffffff;
 }
 
 /* Psychologist Profile */
